@@ -20,6 +20,8 @@ public class UserConsumerService {
     @KafkaListener(topics = "userTopic",groupId = "usergroup4",properties = {"auto.offset.reset:earliest"})
     public void addListenedDetails(ConsumerRecord<String,Object> userConsumerDTO) throws JsonProcessingException {
 
+        System.out.println(userConsumerDTO);
+
         ObjectMapper mapper=new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         UserConsumerDTO userConsumerDTO1=new UserConsumerDTO();
