@@ -17,7 +17,7 @@ public class UserConsumerService {
     @Autowired
     UserConsumerRepository userConsumerRepository;
 
-    @KafkaListener(topics = "userTopic",groupId = "usergroup4",properties = {"auto.offset.reset:earliest"})
+    @KafkaListener(topics = "userProducerTopic",groupId = "userproducergroup5",properties = {"auto.offset.reset:earliest"})
     public void addListenedDetails(ConsumerRecord<String,Object> userConsumerDTO) throws JsonProcessingException {
 
         System.out.println(userConsumerDTO);
